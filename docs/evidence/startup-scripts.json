@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "script": "start.sh",
+      "startup": "passed",
+      "SIGINT_cleanup": "passed",
+      "ports": [
+        8022
+      ]
+    },
+    {
+      "script": "start_dev.sh",
+      "startup": "passed",
+      "SIGINT_cleanup": "passed",
+      "ports": [
+        8017,
+        5177
+      ]
+    }
+  ]
+}

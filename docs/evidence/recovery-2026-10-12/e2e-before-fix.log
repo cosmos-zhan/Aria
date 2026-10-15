@@ -1,0 +1,105 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> projectgraph-p0@0.1.0 test:e2e
+> playwright test
+
+[2m[WebServer] [22mINFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+[2m[WebServer] [22mINFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+[2m[WebServer] [22mINFO  [alembic.runtime.migration] Running upgrade  -> 0001, initial engineering core
+[2m[WebServer] [22mINFO  [alembic.runtime.migration] Running upgrade 0001 -> 0002, Immutable ledgers, scoped polymorphic link guards and delete protection.
+[2m[WebServer] [22mINFO:     Started server process [32]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+[2m[WebServer] [22mINFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+[2m[WebServer] [22m(node:35) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:48) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:66) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:66) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/workbench.spec.ts:18:1 › MiniLab: all five pages render real seeded data and graph node details (4.1s)
+  ✓  2 tests/workbench.spec.ts:68:1 › UI vertical loop: create project, feature, task, proposal V2, accepted ADR and refresh (5.5s)
+  ✘  3 tests/workbench.spec.ts:163:1 › Validation errors are visible; duplicate feature cannot change shared data (7.5s)
+(node:198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 tests/workbench.spec.ts:189:1 › Responsive layout has no horizontal overflow and navigation remains operable (7.4s)
+
+
+  1) tests/workbench.spec.ts:163:1 › Validation errors are visible; duplicate feature cannot change shared data 
+
+    Error: [31mTimed out 7000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: locator('.project-banner')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 7000ms[22m
+    [2m  - waiting for locator('.project-banner')[22m
+
+
+      166 | }) => {
+      167 |   await page.goto('/');
+    > 168 |   await expect(page.locator('.project-banner')).toBeVisible();
+          |                                                 ^
+      169 |   await page.getByRole('button', { name: '新建功能', exact: true }).click();
+      170 |   await page.getByLabel('标题', { exact: true }).fill('Duplicate demo');
+      171 |   await page.getByLabel('功能编号').fill('F01');
+        at /workspace/scratch/dc6c3731050e/Aria/frontend/tests/workbench.spec.ts:168:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/workbench-Validation-error-b654d-e-cannot-change-shared-data/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workbench-Validation-error-b654d-e-cannot-change-shared-data/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workbench-Validation-error-b654d-e-cannot-change-shared-data/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/workbench.spec.ts:189:1 › Responsive layout has no horizontal overflow and navigation remains operable 
+
+    Error: [31mTimed out 7000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: locator('.project-banner h2')
+    Expected string: [32m"MiniLab"[39m
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toHaveText with timeout 7000ms[22m
+    [2m  - waiting for locator('.project-banner h2')[22m
+
+
+      192 |   await page.setViewportSize({ width: 390, height: 844 });
+      193 |   await page.goto('/');
+    > 194 |   await expect(page.locator('.project-banner h2')).toHaveText('MiniLab');
+          |                                                    ^
+      195 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
+      196 |     true,
+      197 |   );
+        at /workspace/scratch/dc6c3731050e/Aria/frontend/tests/workbench.spec.ts:194:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/workbench-Responsive-layou-b1a5c-navigation-remains-operable/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workbench-Responsive-layou-b1a5c-navigation-remains-operable/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workbench-Responsive-layou-b1a5c-navigation-remains-operable/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/workbench.spec.ts:163:1 › Validation errors are visible; duplicate feature cannot change shared data 
+    tests/workbench.spec.ts:189:1 › Responsive layout has no horizontal overflow and navigation remains operable 
+  2 passed (27.4s)

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "database": "temporary / cleaned",
+  "checks": [
+    {
+      "launcher": "start.sh",
+      "ready": true,
+      "SIGINT_cleanup": true
+    },
+    {
+      "launcher": "start_dev.sh",
+      "ready": true,
+      "SIGINT_cleanup": true
+    }
+  ]
+}

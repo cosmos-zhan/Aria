@@ -1,0 +1,27 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> projectgraph-p0@0.1.0 test:e2e
+> playwright test
+
+[2m[WebServer] [22mINFO:     Started server process [34]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO:     Application startup complete.
+[2m[WebServer] [22mINFO:     Uvicorn running on http://127.0.0.1:8011 (Press CTRL+C to quit)
+[2m[WebServer] [22m(node:37) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:50) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:69) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/workbench.spec.ts:18:1 › MiniLab: all five pages render real seeded data and graph node details (4.2s)
+  ✓  2 tests/workbench.spec.ts:68:1 › UI vertical loop: create project, feature, task, proposal V2, accepted ADR and refresh (5.4s)
+  ✓  3 tests/workbench.spec.ts:165:1 › Validation errors are visible; duplicate feature cannot change shared data (1.6s)
+  ✓  4 tests/workbench.spec.ts:191:1 › Responsive layout has no horizontal overflow and navigation remains operable (957ms)
+
+  4 passed (14.3s)

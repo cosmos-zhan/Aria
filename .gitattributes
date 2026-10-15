@@ -1,0 +1,2 @@
+# Preserve literal test output, including the runner's trailing spaces.
+docs/evidence/**/*.log whitespace=-blank-at-eol

@@ -1,0 +1,87 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> projectgraph-p0@0.1.0 test:e2e
+> playwright test
+
+[2m[WebServer] [22mINFO:     Started server process [32]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO:     Application startup complete.
+[2m[WebServer] [22mINFO:     Uvicorn running on http://127.0.0.1:8011 (Press CTRL+C to quit)
+[2m[WebServer] [22m(node:35) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:48) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:66) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:66) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/workbench.spec.ts:18:1 › MiniLab: all five pages render real seeded data and graph node details (4.2s)
+  ✘  2 tests/workbench.spec.ts:68:1 › UI vertical loop: create project, feature, task, proposal V2, accepted ADR and refresh (30.3s)
+(node:177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 tests/workbench.spec.ts:163:1 › Validation errors are visible; duplicate feature cannot change shared data (2.0s)
+  ✓  4 tests/workbench.spec.ts:189:1 › Responsive layout has no horizontal overflow and navigation remains operable (1.1s)
+
+
+  1) tests/workbench.spec.ts:68:1 › UI vertical loop: create project, feature, task, proposal V2, accepted ADR and refresh 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.segmented').getByRole('button', { name: /任务/ })[22m
+    [2m    - locator resolved to <button class="">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div class="modal-backdrop">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div class="modal-backdrop">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    54 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - <div class="modal-backdrop">…</div> intercepts pointer events[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+      90 |   await save(page);
+      91 |   await close(page);
+    > 92 |   await page.locator('.segmented').getByRole('button', { name: /任务/ }).click();
+         |                                                                        ^
+      93 |   const status = page.getByLabel('任务状态 E2E 实现接口');
+      94 |   await expect(status).toHaveValue('planned');
+      95 |   await expect(status.locator('option[value="implemented"]')).toHaveCount(0);
+        at /workspace/scratch/dc6c3731050e/Aria/frontend/tests/workbench.spec.ts:92:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/workbench-UI-vertical-loop-be20e-V2-accepted-ADR-and-refresh/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workbench-UI-vertical-loop-be20e-V2-accepted-ADR-and-refresh/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workbench-UI-vertical-loop-be20e-V2-accepted-ADR-and-refresh/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests/workbench.spec.ts:68:1 › UI vertical loop: create project, feature, task, proposal V2, accepted ADR and refresh 
+  3 passed (40.3s)

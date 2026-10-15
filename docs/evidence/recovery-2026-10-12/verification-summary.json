@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-10-12T13:11:10.223240+00:00",
+  "repository": "cosmos-zhan/Aria",
+  "base_commit": "1630bbd58355481fc2378b44afcf766109e7b780",
+  "recovered_from": "d65d2c27f585acfe65a1609c76615ffcff0b6a4f",
+  "backend": {
+    "tests": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "time_seconds": 2.302
+  },
+  "browser": {
+    "startTime": "2026-10-12T13:06:51.704Z",
+    "duration": 14306.146,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "clean_install": "passed",
+  "frontend_types_and_production_build": "passed",
+  "production_restart": "passed",
+  "workspace_parallel_reads": {
+    "workers": 9,
+    "requests": 180,
+    "status": "passed"
+  },
+  "startup_and_SIGINT": [
+    {
+      "launcher": "start.sh",
+      "ready": true,
+      "SIGINT_cleanup": true
+    },
+    {
+      "launcher": "start_dev.sh",
+      "ready": true,
+      "SIGINT_cleanup": true
+    }
+  ],
+  "python_dependency_check": "passed",
+  "python": "3.12.14",
+  "node": "v24.19.0",
+  "platform": "Linux x86_64",
+  "initial_browser_failures_retained": true,
+  "initial_HTTP_500_trigger": "not independently established; not reproduced in final tests"
+}

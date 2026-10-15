@@ -1,0 +1,31 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> projectgraph-p0@0.1.0 test:e2e
+> playwright test
+
+[WebServer] INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+[WebServer] INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+[WebServer] INFO  [alembic.runtime.migration] Running upgrade  -> 0001, initial engineering core
+[WebServer] INFO  [alembic.runtime.migration] Running upgrade 0001 -> 0002, Immutable ledgers, scoped polymorphic link guards and delete protection.
+[WebServer] INFO:     Started server process [111]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+[WebServer] INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+[WebServer] (node:114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[WebServer] (node:127) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:145) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:145) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/workbench.spec.ts:18:1 › MiniLab: all five pages render real seeded data and graph node details (4.0s)
+  ✓  2 tests/workbench.spec.ts:68:1 › UI vertical loop: create project, feature, task, proposal V2, accepted ADR and refresh (5.2s)
+  ✓  3 tests/workbench.spec.ts:163:1 › Validation errors are visible; duplicate feature cannot change shared data (1.8s)
+  ✓  4 tests/workbench.spec.ts:189:1 › Responsive layout has no horizontal overflow and navigation remains operable (1.1s)
+
+  4 passed (14.2s)

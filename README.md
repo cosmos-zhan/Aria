@@ -1,13 +1,6 @@
 # ProjectGraph P0 · Engineering Core
 
-本项目的后续开发仓库是 [cosmos-zhan/Aria](https://github.com/cosmos-zhan/Aria)。仓库名称为 Aria，应用名称仍为 ProjectGraph。可直接克隆源码并启动：
-
-```bash
-git clone https://github.com/cosmos-zhan/Aria.git
-cd Aria
-./scripts/bootstrap.sh
-./scripts/start.sh
-```
+本项目的开发仓库是 [cosmos-zhan/Aria](https://github.com/cosmos-zhan/Aria)。仓库名称为 Aria，应用名称仍为 ProjectGraph。后端、前端、迁移、测试和脚本均随源码提供；2026-10-12 的恢复范围与验证证据见 [恢复报告](docs/recovery-report.md)。
 
 ProjectGraph 是可在 Linux、CPU、单机环境运行的工程工作台。工程、里程碑、功能、任务、方案版本、ADR 与事件都保存在同一个 SQLite 数据库中，五个页面共享后端 API。
 
@@ -18,9 +11,8 @@ MiniLab 仅作为工程规划示例：9 个功能、3 个里程碑全部处于�
 需要 Python 3.11+，从源码构建前端需要 Node.js 22.12+ 和 npm。实际验证环境为 Python 3.12.14、Node.js 24.19.0。
 
 ```bash
-unzip projectgraph-p0.zip
-cd projectgraph
-chmod +x scripts/*.sh
+git clone https://github.com/cosmos-zhan/Aria.git
+cd Aria
 ./scripts/bootstrap.sh
 ./scripts/start.sh
 ```
@@ -29,7 +21,7 @@ chmod +x scripts/*.sh
 
 `bootstrap.sh` 创建虚拟环境、安装锁定的 Python/Node 依赖、构建前端并初始化 MiniLab。`start.sh` 运行一个 FastAPI 进程，同时提供 API 和已构建的前端。安装阶段需要联网，正常使用应用不需要模型 API 或外部服务。
 
-ZIP 另含经过验证的 `frontend/dist`，便于直接运行；它是发布产物，不是依赖缓存，也没有提交到 Git。仅运行这个预构建版本时可以省略 Node 安装：
+Git checkout 不包含 `frontend/dist`，`bootstrap.sh` 会从源码构建。运行依赖和数据库也不提交。此前的 ZIP 交付包另含预构建的 `frontend/dist`；只有使用此类完整 ZIP 时，才可以省略 Node 安装：
 
 ```bash
 python3 -m venv .venv
@@ -58,8 +50,8 @@ nvm use 24
 node --version
 npm --version
 
-unzip projectgraph-p0.zip
-cd projectgraph
+git clone https://github.com/cosmos-zhan/Aria.git
+cd Aria
 python3 -m venv .venv
 .venv/bin/python -m pip install -r backend/requirements.lock.txt
 npm --prefix frontend ci
@@ -165,6 +157,9 @@ cd ..
 
 # 实际后端进程退出／重启，以及生产 JS/CSS/字体资源验证。
 .venv/bin/python scripts/smoke_restart.py
+
+# 文档中两种启动脚本的就绪和 Ctrl+C 清理验证（Linux）。
+.venv/bin/python scripts/smoke_startup.py
 ```
 
 浏览器测试记录保存到 `artifacts/playwright-results.json`；失败时保留 trace 与截图。`scripts/e2e_server.py` 只清理专用 `artifacts/e2e.db`。重启测试使用临时目录，结束后删除自己的测试库。E2E 所需浏览器不是日常运行依赖。
@@ -178,23 +173,25 @@ cd ..
 | `backend/app/models`、`schemas` | 当前状态实体与输入校验 |
 | `backend/app/services`、`events` | 业务约束、修订、图谱、事务事件 |
 | `backend/app/api`、`main.py` | REST API、迁移启动、生产静态资源 |
-| `backend/alembic`、`tests` | 数据库迁移与 26 项后端测试 |
+| `backend/alembic`、`tests` | 数据库迁移与 27 项后端测试 |
 | `frontend/src/pages`、`components` | 五页工作台、实体表单、历史和差异视图 |
 | `frontend/src/api`、`types` | 统一 Client、共享工程状态、TypeScript 类型 |
 | `frontend/tests` | 4 个浏览器端到端场景 |
 | `scripts` | 安装、启动、Seed、真实重启验证 |
 | `docs` | 架构、数据模型、API、测试、总结、截图与许可证 |
-| `projectgraph-history.bundle` | 交付时导出的完整本地 Git 历史 |
+| `docs/history` | 首次恢复前的五次本地开发提交、可独立恢复的 Git bundle |
+| `docs/evidence/recovery-2026-10-12` | 此次恢复的重新安装与测试证据 |
 
 - [系统架构与 P1 扩展边界](docs/architecture.md)
 - [数据模型、关联与状态约束](docs/data-model.md)
 - [API 文档](docs/api.md)
 - [真实测试报告](docs/p0-test-report.md)
 - [开发总结与提交说明](docs/development-summary.md)
+- [仓库恢复范围和本次验证](docs/recovery-report.md)
 
 ## GitHub 与交付历史
 
-后续代码以 Aria 的 `main` 分支为准。首次导入将原有 5 次本地提交保存在 `docs/history/projectgraph-p0-local-history.bundle`，对应完整日志为 `docs/history/projectgraph-p0-local-history.txt`。需要查看首次导入前的开发历史时，可单独恢复，不覆盖当前工作目录：
+后续代码以 Aria 的 `main` 分支为准。本次恢复以原远端提交 `1630bbd` 为父提交，补入此前保留的源码与文档；原有 5 次本地开发提交另保存在 `docs/history/projectgraph-p0-local-history.bundle`，对应完整日志为 `docs/history/projectgraph-p0-local-history.txt`。需要查看首次导入前的开发历史时，可单独恢复，不覆盖当前工作目录：
 
 ```bash
 git clone docs/history/projectgraph-p0-local-history.bundle /tmp/projectgraph-p0-history

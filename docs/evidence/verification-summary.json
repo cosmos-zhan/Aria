@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-10",
+  "backend": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "time_seconds": "2.001"
+  },
+  "browser": {
+    "startTime": "2026-10-10T07:48:29.642Z",
+    "duration": 14219.419000000002,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "production_restart": "passed",
+  "clean_install": "passed",
+  "clean_restart": "passed",
+  "startup_and_SIGINT": "passed",
+  "python": "3.12.14",
+  "node": "24.19.0"
+}

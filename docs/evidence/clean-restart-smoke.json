@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checks": [
+    "production SPA and JS/CSS/font assets",
+    "unknown API path returns 404",
+    "idempotent seed / 9 planned features",
+    "real HTTP CRUD and event writes",
+    "OS backend termination and restart",
+    "identical event history and persisted task status"
+  ],
+  "database": "temporary / cleaned",
+  "port": 8020
+}

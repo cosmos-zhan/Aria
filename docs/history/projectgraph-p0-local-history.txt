@@ -1,0 +1,5 @@
+d65d2c27f585acfe65a1609c76615ffcff0b6a4f 2026-10-12T17:47:53+08:00 docs(repo): designate Aria as the canonical development repository
+340b110a29371d0d9fbc5780ec35c78fa9754c89 2026-10-10T09:51:47+02:00 docs(delivery): document verified P0, preserve test evidence and package release
+f9b6c1440f50799128c774d9b109ab827da23861 2026-10-10T09:43:06+02:00 fix(release): bundle CJK fonts, format source and verify real process persistence
+2dc76e0547315e6e0a179cac243fd9f3a9d8b4af 2026-09-30T17:48:20+08:00 feat(workbench): add five live views, editing forms, graph and revision comparisons
+8a294bc250ce7e859d8d13022b6740204723b0d8 2026-09-30T17:22:41+08:00 feat(core): persist engineering objects, immutable revisions and transactional ledger
